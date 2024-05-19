@@ -15,7 +15,7 @@ export const DataProvider = ({ children }) => {
     });
     const fetchData = async (latitude, longitude) => {
         try {
-            const response = await axios.get('http://localhost:8080/api/weather', {
+            const response = await axios.get('https://weather-app-backend-ly3s.onrender.com/api/weather', {
                 params: {
                     latitude,
                     longitude
