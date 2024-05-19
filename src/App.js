@@ -1,25 +1,29 @@
-import logo from './logo.svg';
+
 import './App.css';
+import Localization from "./Components/Pages/startingView.jsx";
+import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom';
+import MainView from "./Components/Pages/mainView.jsx";
+import { DataProvider } from './Components/DataContext/DataContext.js';
+import {useState} from "react";
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [userDataValid, setUserDataValid] = useState(false);
+
+    const handleUserDataValidation = (isValid) => {
+        setUserDataValid(isValid);
+
+    };
+    return(
+            <DataProvider>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Localization onValidateUserData={handleUserDataValidation} />} />
+                        <Route path="/weather" element={userDataValid ? <MainView /> : <Navigate to="/" />} />
+                    </Routes>
+                </BrowserRouter>
+            </DataProvider>
+    )
 }
 
 export default App;
