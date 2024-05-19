@@ -32,7 +32,7 @@ body{
     align-items: center;
 }
 
-.sidebar-item  img{
+.sidebar-item img{
     width: 43%;
     height: 90%;
 }
@@ -40,7 +40,7 @@ body{
     color: #eaeaea;
 }
 .main-content{
-    margin-top: 15vh;;
+    margin-top: 8vh;
     margin-left: calc(5% + 2%);
     margin-right: 5vh;
     position: relative;
@@ -80,7 +80,7 @@ body{
     position: relative;
     display: inline-block;
     width: calc(100% / 7 - 10px);
-    margin: 0 5px;
+    margin: 0 3px;
     flex-grow: 1;
     text-align: center;
 }
